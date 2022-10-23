@@ -19,22 +19,19 @@ public class Solution {
         ListNode currT = head;
         ListNode currR = head;
         
-        while (currT != null && currR != null && currR.next != null) {
+        while (currR != null && currR.next != null) {
             currT = currT.next;
             currR = currR.next.next;
             if (currT == currR) break;
         }
         
-        if (currT == null || currR == null || currR.next == null)
-            return null;        
+        if (currR == null || currR.next == null) return null;        
         
-        ListNode curr = head;
-        
-        while (curr != currT) {
+        while (head != currT) {
             currT = currT.next;
-            curr = curr.next;
+            head = head.next;
         }
         
-        return curr;
+        return head;
     }
 }
